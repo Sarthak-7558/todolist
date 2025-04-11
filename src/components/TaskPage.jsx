@@ -19,7 +19,7 @@ const TaskPage = () => {
     <div className="task-page-container">
       <div className="task-page-header">
         <h1>
-          <i className="fa-duotone fa-list-check"></i> My To-do List
+          <i className="fa-duotone fa-list-check"></i> My To-do 
         </h1>
         <button className="logout-btn" onClick={handleLogout}>
           <i className="fa fa-sign-out" style={{ marginRight: "5px" }}></i>

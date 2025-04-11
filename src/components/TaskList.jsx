@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTask, fetchWeatherForTasks } from "../redux/actions/taskActions";
+import { deleteTask, fetchWeatherForTasks ,loadTasks} from "../redux/actions/taskActions";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import "./TaskList.css"; // Import external CSS
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -17,6 +18,10 @@ const TaskList = () => {
   const [taskStatusList, setTaskStatusList] = useState(tasks.map(() => false));
   const prevTasksLength = useRef(tasks.length);
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(loadTasks());
+  },[]);
 
   useEffect(() => {
     dispatch(fetchWeatherForTasks());
