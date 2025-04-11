@@ -1,0 +1,62 @@
+🌟 Features
+🔐 User Authentication
+
+Login and logout functionality using Redux.
+
+Authentication state persisted in local storage.
+
+Tasks are protected behind authentication.
+
+📝 Task Management
+
+Add new tasks via a user-friendly input form.
+
+View all tasks in a structured list format.
+
+Delete individual tasks with a single click.
+
+Assign priority to tasks (High, Medium, Low).
+
+Categorize tasks as Indoor or Outdoor.
+
+🌦️ Weather Integration
+
+Integrated OpenWeatherMap API to fetch real-time weather data.
+
+For every Outdoor task, the current weather conditions are displayed next to the task.
+
+Graceful error handling for failed API calls or network issues.
+
+💾 Persistent Data
+
+Tasks and authentication status are saved in Local Storage.
+
+Tasks remain saved even after page reload or browser restart.
+
+🧠 Advanced State Management
+
+Uses Redux Toolkit for centralized and scalable state management.
+
+Redux Thunk used to handle asynchronous operations like API calls.
+
+🧩 React Functional Components & Hooks
+
+Built using React functional components.
+
+Makes extensive use of useState, useEffect, useDispatch, useSelector.
+
+📱 Responsive Design
+
+Designed with mobile-first approach.
+
+Fully responsive layout using CSS Flexbox and CSS Grid.
+
+Works seamlessly across mobile, tablet, and desktop devices.
+
+✨ Enhanced UI/UX
+
+Clean and minimal UI with easy navigation.
+
+Snackbar or alert messages for task actions like add/delete/login.
+
+Neatly organized project folder structure with scalable codebase.
