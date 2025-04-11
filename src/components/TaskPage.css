@@ -1,0 +1,20 @@
+.task-page-container {
+    padding: 20px;
+  }
+  
+  .task-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logout-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  

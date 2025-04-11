@@ -4,6 +4,7 @@ import TaskList from "./TaskList";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/actions/authActions";
 import { useNavigate } from "react-router-dom";
+import "./TaskPage.css"; // Import the external CSS
 
 const TaskPage = () => {
   const dispatch = useDispatch();
@@ -15,30 +16,12 @@ const TaskPage = () => {
   };
 
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+    <div className="task-page-container">
+      <div className="task-page-header">
         <h1>
-          {" "}
           <i className="fa-duotone fa-list-check"></i> My To-do List
         </h1>
-        <button
-          onClick={handleLogout}
-          style={{
-            backgroundColor: "red",
-            color: "white",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "16px",
-          }}
-        >
+        <button className="logout-btn" onClick={handleLogout}>
           <i className="fa fa-sign-out" style={{ marginRight: "5px" }}></i>
           LogOut
         </button>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteTask, fetchWeatherForTasks } from "../redux/actions/taskActions";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import "./TaskList.css"; // Import external CSS
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -45,42 +46,33 @@ const TaskList = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="task-container">
       {tasks.length === 0 ? (
-        <div style={styles.noTask}>No tasks to show 🎉</div>
+        <div className="no-task">No tasks to show 🎉</div>
       ) : (
         tasks.map((task, index) => (
-          <div key={index} style={styles.card}>
-            <div style={styles.taskHeader}>
+          <div key={index} className="task-card">
+            <div className="task-header">
               <div
-                style={
-                  taskStatusList[index] ? styles.completTask : styles.taskText
-                }
+                className={taskStatusList[index] ? "task-complete" : "task-text"}
                 onClick={() => toggleStatus(index)}
               >
                 <b>{task.text}</b>{" "}
-                <span
-                  style={
-                    task.priority === "High"
-                      ? styles.priority
-                      : styles.lowPriority
-                  }
-                >
+                <span className={task.priority === "High" ? "priority-high" : "priority-low"}>
                   ({task.priority})
                 </span>
               </div>
               <button
-                style={styles.deleteBtn}
+                className="delete-btn"
                 onClick={() => dispatch(deleteTask(index))}
               >
                 ❌
               </button>
             </div>
-            {console.log(task.taskLocation)}
             {task.priority === "High" &&
               weather &&
               task.taskLocation === "OutDoor" && (
-                <div style={styles.weather}>
+                <div className="weather-info">
                   <span role="img" aria-label="weather">
                     ☀️
                   </span>{" "}
@@ -91,7 +83,7 @@ const TaskList = () => {
           </div>
         ))
       )}
-      {error && <div style={styles.error}>Weather API Error: {error}</div>}
+      {error && <div className="task-error">Weather API Error: {error}</div>}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
@@ -104,74 +96,6 @@ const TaskList = () => {
       </Snackbar>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: "600px",
-    margin: "20px auto",
-    padding: "0 16px",
-  },
-  card: {
-    backgroundColor: "#f9f9f9",
-    borderRadius: "12px",
-    padding: "16px",
-    marginBottom: "12px",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    transition: "transform 0.2s",
-  },
-  taskHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap",
-  },
-  lowPriority: {
-    color: "gold",
-    marginLeft: "6px",
-    fontStyle: "italic",
-  },
-  taskText: {
-    fontSize: "1.1rem",
-    color: "#333",
-    marginBottom: "4px",
-    cursor: "pointer",
-  },
-  completTask: {
-    textDecoration: "line-through",
-    cursor: "pointer",
-  },
-  priority: {
-    color: "#ff6347",
-    marginLeft: "6px",
-    fontStyle: "italic",
-  },
-  deleteBtn: {
-    backgroundColor: "transparent",
-    color: "#fff",
-    border: "none",
-    padding: "6px 12px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    fontSize: "0.9rem",
-    transition: "background-color 0.2s",
-  },
-  weather: {
-    marginTop: "10px",
-    fontSize: "0.95rem",
-    color: "#555",
-  },
-  error: {
-    color: "red",
-    marginTop: "16px",
-    textAlign: "center",
-  },
-  noTask: {
-    textAlign: "center",
-    color: "#888",
-    fontSize: "1.1rem",
-    marginTop: "30px",
-  },
 };
 
 export default TaskList;

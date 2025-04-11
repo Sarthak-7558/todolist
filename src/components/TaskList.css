@@ -1,0 +1,76 @@
+.task-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 16px;
+  }
+  
+  .task-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .task-text {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+  
+  .task-complete {
+    text-decoration: line-through;
+    cursor: pointer;
+  }
+  
+  .priority-high {
+    color: #ff6347;
+    margin-left: 6px;
+    font-style: italic;
+  }
+  
+  .priority-low {
+    color: gold;
+    margin-left: 6px;
+    font-style: italic;
+  }
+  
+  .delete-btn {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+  
+  .weather-info {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .task-error {
+    color: red;
+    margin-top: 16px;
+    text-align: center;
+  }
+  
+  .no-task {
+    text-align: center;
+    color: #888;
+    font-size: 1.1rem;
+    margin-top: 30px;
+  }
+  
